@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="menu.css">
+    <script src="cart.js"></script>
+    <script src="menu.js"></script>
+</head>
+<body>
+    <div class="falling-tacos">
+        <div class="taco"></div>
+        <div class="taco"></div>
+        <div class="taco"></div>
+        <div class="taco"></div>
+        <div class="taco"></div>
+        <div class="taco"></div>
+        <div class="taco"></div>
+        <div class="taco"></div>
+        <div class="taco"></div>
+    </div>
+    
+    <div class="header">
+        <h1>Mexican Lexican Menu</h1>
+        <p>Enjoy our delicous Food</p>
+    </div>
+
+    <div class="button-container">
+        <button class="option-btn" onclick="showPickupForm()">pickup</button>
+        <button class="option-btn" onclick="showForm()">delivery</button>
+        <a href="cart.html" class="option-btn" style="text-decoration: none; display: inline-block;">cart</a>
+    </div>
+
+    <div id="deliveryForm" class="delivery-form">
+        <h3>Delivery Information</h3>
+        
+        <div class="name-row">
+            <input type="text" placeholder="First Name" class="form-input">
+            <input type="text" placeholder="Last Name" class="form-input">
+        </div>
+        
+        <input type="text" placeholder="House Number" class="form-input full-width">
+        <input type="text" placeholder="Street Address" class="form-input full-width">
+        <input type="text" placeholder="Apt/Suite (optional)" class="form-input full-width">
+        
+        <div class="address-row">
+            <input type="text" placeholder="City" class="form-input">
+            <input type="text" placeholder="Zip Code" class="form-input">
+        </div>
+        
+        <input type="text" placeholder="State" class="form-input full-width">
+        <textarea placeholder="Delivery notes..." class="form-textarea"></textarea>
+        
+        <div class="form-buttons">
+            <button onclick="hideForm()" class="back-btn">Back</button>
+            <button onclick="window.location.href='cart.html'" class="continue-btn">Continue</button>
+        </div>
+    </div>
+
+
+
+
+    <script>
+    function showForm() {
+        document.getElementById('deliveryForm').style.display = 'block';
+        document.getElementById('pickupForm').style.display = 'none';
+        document.querySelector('.button-container').style.display = 'none';
+        document.querySelector('.header').style.display = 'none';
+    }
+
+    function showPickupForm() {
+        document.getElementById('pickupForm').style.display = 'block';
+        document.getElementById('deliveryForm').style.display = 'none';
+        document.querySelector('.button-container').style.display = 'none';
+        document.querySelector('.header').style.display = 'none';
+    }
+
+    function hideForm() {
+        document.getElementById('deliveryForm').style.display = 'none';
+        document.getElementById('pickupForm').style.display = 'none';
+        document.querySelector('.button-container').style.display = 'block';
+        document.querySelector('.header').style.display = 'block';
+    }
+    </script>
+</body>
+</html>
+
+<div id="pickupForm" class="pickup-form" style="display: none;">
+    <h3>Pickup Information</h3>
+
+    <div class="name-row">
+        <input type ="email" placeholder="Email Adress" class ="form-input full-width">
+        <input type="tel" placeholder="Phone number" class = "form-input full-width">
+
+        <label class ="pickup-time" class="time-label">Select Pickup Time:</label>
+        <select id="pickup-time" class="form-input full-width">
+            <option value="">Choose a time</option>
+            <option value="asap">ASAP (15-20 minutes)</option>
+            <option value="30min">In 30 minutes</option>
+            <option value="45min">In 45 minutes</option>
+            <option value="1hour">In 1 hour</option>
+            <option value="custom">Schedule for later</option>
+
+        </select>
+
+        <div id="customTimeSection" class="custom-time-section" style="display: none;">
+            <input type="date" id="delivery-date" class="form-input full-width" min="">
+            <input type="time" id="delivery-time-input" class="form-input full-width" min="10:00" max="22:00">
+            <small class="time-note">Delivery hours: 10:00am - 10:00pm</small>
+        </div>
+
+    </div>
+    
+
+    <div class="payment selection">
+        <label class="payment-label">Payment Method:</label>
+        <div class="payment-options">
+        <label class="payment option">
+            <input type="radio" name="payment" value="cash">
+           <span>Cash</span> 
+        </label>
+        <label class="payment-option">
+            <input type="radio" name="payment" value="card">
+            <span>Credit Card/debit card</span>
+        </label>
+        <label class="payment-option">
+            <input type="radio" name="payment" value="digital">
+            <span>Digital Wallet</span>
+        </label>
+    </div>
+</div>
+
+<textarea placeholder="special instructions..." class="form-textarea"></textarea>
+
+<div class="form-buttons">
+    <button onclick="hideForm()" class="back-btn">Back</button>
+    <button onclick="window.location.href='cart.html'" class="continue-btn">Continue</button>
+</div>
+    
+
+<div id="cartPage" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; overflow-y: auto;">
+    
+    <!-- Cart Header -->
+    <div style="padding: 20px; border-bottom: 1px solid #ddd; background: #f8f9fa;">
+        <button onclick="goBackToMenu()" style="float: left; padding: 10px 20px; background: #007acc; color: white; border: none; border-radius: 5px; cursor: pointer;">← Back to Menu</button>
+        <h1 style="text-align: center; margin: 0; color: #333;">Shopping Cart</h1>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <!-- YOUR CONTENT GOES HERE - Type whatever you want! -->
+    <div id="emptyCartMessage" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+        
+        <!-- Add your own text here between these <p> tags -->
+        <p style="font-size: 2rem; color: black;">Your cart is empty :(</p>
+        
+    </div>
+</div>
