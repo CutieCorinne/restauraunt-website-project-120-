@@ -3,7 +3,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
 .menu-section-title {
@@ -235,8 +235,13 @@ body {
 }
 
 .menu-nav {
-    margin-top: 90px;  
+    margin-top: 40px;  
 }
 
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px; 
+}
 
 /* corinne's code ^ */

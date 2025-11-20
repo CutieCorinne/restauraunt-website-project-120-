@@ -1,4 +1,4 @@
-//someones code //
+//chris code //
 document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('login-form');
     
@@ -18,4 +18,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-// someones code ^ //
+// chris code ^ //
