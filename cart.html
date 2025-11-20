@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Mexican Lexican</title>
+    <link rel="stylesheet" href="menu.css">
+    <script src="menu.js"></script>
+</head>
+<body>
+    <div class="secure-checkout-header">
+        <h2>🔒 Secure Checkout</h2>
+    </div>
+    
+    <div class="cart-container">
+        <div class="cart-header">
+            <a href="menu.html" class="back-btn">← Back to Menu</a>
+            <h1>Shopping Cart</h1>
+        </div>
+        
+        <div class="cart-content">
+            <div class="empty-cart">
+                <p>Your cart is empty :(</p>
+                <p>Go back to the menu and add some delicious items!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-summary">
+        <p>Total: <span id="cartTotal">$0.00</span></p>
+        <p><span id ="itemCount">0 items</span></p>
+    </div>
+    
+    <!-- Payment Method Section -->
+    <div id="paymentForm" class="payment-form">
+        <h1>Payment Method</h1>
+
+        <div class="payment-methods-list">
+
+        </div>
+
+        <button class="add-payment-btn" onclick="showAddCard()"> Add a new payment method</button>
+        
+        <!-- Add New Card Form (hidden by default) -->
+        <div id="addCardForm" class="add-card-form" style="display: none;">
+            <h3>Add Credit/Debit Card</h3>
+            
+            <div class="card-type-selection">
+                <label class="card-type">
+                    <input type="radio" name="cardType" value="credit" checked>
+                    <span>Credit Card</span>
+                </label>
+                <label class="card-type">
+                    <input type="radio" name="cardType" value="debit">
+                    <span>Debit Card</span>
+                </label>
+            </div>
+            
+            <div class="card-info">
+                <input type="text" placeholder="Cardholder Name" class="form-input full-width">
+                <input type="text" placeholder="Card Number" class="form-input full-width" maxlength="19">
+                
+                <div class="card-details-row">
+                    <input type="text" placeholder="MM/YY" class="form-input" maxlength="5">
+                    <input type="text" placeholder="CVV" class="form-input" maxlength="4">
+                </div>
+                
+                <div class="billing-address">
+                    <h4>Billing Address</h4>
+                    <input type="text" placeholder="Street Address" class="form-input full-width">
+                    <div class="address-row">
+                        <input type="text" placeholder="City" class="form-input">
+                        <input type="text" placeholder="State" class="form-input">
+                        <input type="text" placeholder="ZIP Code" class="form-input">
+                    </div>
+                </div>
+                
+                <label class="save-card">
+                    <input type="checkbox" checked>
+                    <span>Save this card for future purchases</span>
+                </label>
+            </div>
+            
+            <div class="card-form-buttons">
+                <button onclick="cancelAddCard()" class="cancel-btn">Cancel</button>
+                <button onclick="saveCard()" class="save-card-btn">Save Card</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cart-actions">
+        <button onclick="deselectAllItems()" class="deselect-btn">Deselect All Items</button>
+    </div>
+    
+</body>
+</html>
