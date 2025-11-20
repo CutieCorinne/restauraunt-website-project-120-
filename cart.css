@@ -1,3 +1,4 @@
+/* someones code */ 
 .cart-content {
     display: flex;
     gap: 30px;
@@ -380,3 +381,5 @@
 .print-btn:hover {
     background: #218838;
 }
+
+/* someones code ^ */ 

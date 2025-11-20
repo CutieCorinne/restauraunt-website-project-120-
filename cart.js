@@ -1,4 +1,4 @@
-//function to show the cart page
+//someones code//
 function showCart() {
     alert('Cart button clicked!'); // Quick test
     
@@ -23,12 +23,12 @@ function goBackToMenu() {
 //show the menu buttons
 document.getElementById('button-container').style.display= 'block';
 document.getElementById('header').style.display = 'block';
+// ^ someones code // 
 
 
 
 
-
-//deselect all items in the cart
+//someones code //
 function deselectAllItems() {
     var checkboxes =document.getElementsByClassName('cart-checkbox');
 
@@ -79,3 +79,5 @@ function addToCart(itemName, price) {
     
     alert(itemName + ' added! New total: $' + cartTotal.toFixed(2));
 }
+
+// someones code ^ //

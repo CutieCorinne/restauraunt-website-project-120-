@@ -1,3 +1,5 @@
+// corinne's code // 
+
 document.addEventListener("DOMContentLoaded", () => {
     
     const menuItems = document.querySelectorAll(".menu-item");
@@ -38,3 +40,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// corinne's code ^ //

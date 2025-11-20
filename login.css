@@ -1,3 +1,4 @@
+/* someones code */
 .login-boxes {
     display: flex;
     gap: 30px;
@@ -52,3 +53,4 @@
 .login-box button:hover, .signup-box button:hover {
     background: #218838;
 }
+/* someones code ^ */
