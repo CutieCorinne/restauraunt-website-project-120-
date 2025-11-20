@@ -148,3 +148,25 @@ body {
     align-items: center;
     line-height: 1; 
     }
+
+    .menu-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.menu-nav button {
+    background-color: #388e3c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.menu-nav button:hover {
+    background-color: #2e7030;
+}
