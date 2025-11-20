@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mexican eats</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+        </div>
+        <div class="nav-right">
+            <a href="cart.html" class="cart-btn">🛒 Cart (0)</a>
+            <a href="Mex.HTML" class="home-btn">Home</a>
+        </div>
+    </nav>
+    
+    <div class="login-container">
+        <h1>Ready to Order? Sign In or Join Us</h1>
+        <div class="login-boxes">
+            <div class="login-box">
+                <h3>Login</h3>
+                <form id="login-form">
+                    <div>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+            
+            <div class="signup-box">
+                <h3>Sign Up</h3>
+                <form id="signup-form">
+                    <div>
+                        <label for="signup-name">Full Name:</label>
+                        <input type="text" id="signup-name" name="signupName" required>
+                    </div>
+                    
+                    <div>
+                        <label for="signup-username">Username:</label>
+                        <input type="text" id="signup-username" name="signupUsername" required>
+                    </div>
+
+                    <div>
+                        <label for="signup-password">Password:</label>
+                        <input type="password" id="signup-password" name="signupPassword" required>
+                    </div>
+                    
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="../js/manager.js"></script>
+</body>
+</html>

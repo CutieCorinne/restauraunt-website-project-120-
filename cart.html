@@ -3,94 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart - Mexican Lexican</title>
-    <link rel="stylesheet" href="menu.css">
-    <script src="menu.js"></script>
+    <title>Mexican Eats - Shopping Cart</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cart.css">
 </head>
 <body>
-    <div class="secure-checkout-header">
-        <h2>🔒 Secure Checkout</h2>
-    </div>
-    
-    <div class="cart-container">
-        <div class="cart-header">
-            <a href="menu.html" class="back-btn">← Back to Menu</a>
-            <h1>Shopping Cart</h1>
+    <nav class="navbar">
+        <div class="nav-left">
         </div>
+        <div class="nav-right">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="Mex.HTML" class="home-btn">Home</a>
+        </div>
+    </nav>
+    
+    <div class="login-container">
+        <h1>Your Shopping Cart</h1>
         
         <div class="cart-content">
-            <div class="empty-cart">
-                <p>Your cart is empty :(</p>
-                <p>Go back to the menu and add some delicious items!</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="cart-summary">
-        <p>Total: <span id="cartTotal">$0.00</span></p>
-        <p><span id ="itemCount">0 items</span></p>
-    </div>
-    
-    <!-- Payment Method Section -->
-    <div id="paymentForm" class="payment-form">
-        <h1>Payment Method</h1>
-
-        <div class="payment-methods-list">
-
-        </div>
-
-        <button class="add-payment-btn" onclick="showAddCard()"> Add a new payment method</button>
-        
-        <!-- Add New Card Form (hidden by default) -->
-        <div id="addCardForm" class="add-card-form" style="display: none;">
-            <h3>Add Credit/Debit Card</h3>
-            
-            <div class="card-type-selection">
-                <label class="card-type">
-                    <input type="radio" name="cardType" value="credit" checked>
-                    <span>Credit Card</span>
-                </label>
-                <label class="card-type">
-                    <input type="radio" name="cardType" value="debit">
-                    <span>Debit Card</span>
-                </label>
-            </div>
-            
-            <div class="card-info">
-                <input type="text" placeholder="Cardholder Name" class="form-input full-width">
-                <input type="text" placeholder="Card Number" class="form-input full-width" maxlength="19">
-                
-                <div class="card-details-row">
-                    <input type="text" placeholder="MM/YY" class="form-input" maxlength="5">
-                    <input type="text" placeholder="CVV" class="form-input" maxlength="4">
+            <div class="cart-items">
+                <h3>Cart Items</h3>
+                <div id="cart-items-list">
+                    <p>Your cart is currently empty</p>
                 </div>
-                
-                <div class="billing-address">
-                    <h4>Billing Address</h4>
-                    <input type="text" placeholder="Street Address" class="form-input full-width">
-                    <div class="address-row">
-                        <input type="text" placeholder="City" class="form-input">
-                        <input type="text" placeholder="State" class="form-input">
-                        <input type="text" placeholder="ZIP Code" class="form-input">
+            </div>
+            
+            <div class="cart-summary">
+                <h3>Order Summary</h3>
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="summary-line">
+                    <span>Tax:</span>
+                    <span id="cart-tax">$0.00</span>
+                </div>
+                <div class="summary-line">
+                    <span>Tip:</span>
+                    <span>
+                        <input type="number" id="tip-amount" placeholder="0.00" min="0" step="0.01" onchange="updateTotal()">
+                    </span>
+                </div>
+                <div class="summary-line total">
+                    <span>Total:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+            
+                <button class="payment-btn" onclick="showPaymentModal()">Choose Payment Method</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <a href="cart.html" class="checkout-button">
+        🛒 Proceed to Checkout
+    </a>
+    
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Choose Payment Method</h2>
+                <span class="close" onclick="closePaymentModal()">&times;</span>
+            </div>
+            
+            <div class="payment-options">
+                <div class="payment-option" onclick="selectPayment('credit')">
+                    <div class="payment-icon">💳</div>
+                    <div class="payment-info">
+                        <h4>Credit/Debit Card</h4>
+                        <p>Visa, Mastercard, American Express</p>
                     </div>
                 </div>
                 
-                <label class="save-card">
-                    <input type="checkbox" checked>
-                    <span>Save this card for future purchases</span>
-                </label>
-            </div>
-            
-            <div class="card-form-buttons">
-                <button onclick="cancelAddCard()" class="cancel-btn">Cancel</button>
-                <button onclick="saveCard()" class="save-card-btn">Save Card</button>
+                <div class="payment-option" onclick="selectPayment('paypal')">
+                    <div class="payment-icon">🅿️</div>
+                    <div class="payment-info">
+                        <h4>PayPal</h4>
+                        <p>Pay with your PayPal account</p>
+                    </div>
+                </div>
+                
+                <div class="payment-option" onclick="selectPayment('apple')">
+                    <div class="payment-icon">🍎</div>
+                    <div class="payment-info">
+                        <h4>Apple Pay</h4>
+                        <p>Touch ID or Face ID</p>
+                    </div>
+                </div>
+                
+                <div class="payment-option" onclick="selectPayment('google')">
+                    <div class="payment-icon">🅖</div>
+                    <div class="payment-info">
+                        <h4>Google Pay</h4>
+                        <p>Quick and secure</p>
+                    </div>
+                </div>
+                
+                <div class="payment-option" onclick="selectPayment('cash')">
+                    <div class="payment-icon">💵</div>
+                    <div class="payment-info">
+                        <h4>Cash on Delivery</h4>
+                        <p>Pay when your order arrives</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
-    <div class="cart-actions">
-        <button onclick="deselectAllItems()" class="deselect-btn">Deselect All Items</button>
-    </div>
-    
+    <script>
+        function showPaymentModal() {
+            var modal = document.getElementById('payment-modal');
+            modal.style.display = 'block';
+        }
+        
+        function closePaymentModal() {
+            var modal = document.getElementById('payment-modal');
+            modal.style.display = 'none';
+        }
+        
+        function selectPayment(method) {
+            if (method == 'credit') {
+                showCardForm();
+            } else {
+                alert('You picked: ' + method + ' payment');
+                closePaymentModal();
+            }
+        }
+        
+        function showCardForm() {
+            var paymentDiv = document.querySelector('.payment-options');
+            paymentDiv.innerHTML = '<div class="card-form"><h3>Enter Card Information</h3><div class="form-group"><label for="card-number">Card Number</label><input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19"></div><div class="form-row"><div class="form-group half"><label for="expiry-date">Expiry Date</label><input type="text" id="expiry-date" placeholder="MM/YY" maxlength="5"></div><div class="form-group half"><label for="cvv">CVV</label><input type="text" id="cvv" placeholder="123" maxlength="4"></div></div><div class="form-group"><label for="cardholder-name">Cardholder Name</label><input type="text" id="cardholder-name" placeholder="John Doe"></div><div class="form-group"><label for="billing-zip">Billing ZIP Code</label><input type="text" id="billing-zip" placeholder="12345" maxlength="5"></div><div class="form-buttons"><button class="back-btn" onclick="goBackToPaymentOptions()">← Back</button><button class="confirm-btn" onclick="processPayment()">Complete Order</button></div></div>';
+            
+            document.getElementById('card-number').addEventListener('input', formatCardNumber);
+            document.getElementById('expiry-date').addEventListener('input', formatExpiryDate);
+        }
+        
+        function formatCardNumber(e) {
+            var value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+            var formattedValue = value.match(/.{1,4}/g);
+            if (formattedValue) {
+                e.target.value = formattedValue.join(' ');
+            } else {
+                e.target.value = value;
+            }
+        }
+        
+        function formatExpiryDate(e) {
+            var value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0,2) + '/' + value.substring(2,4);
+            }
+            e.target.value = value;
+        }
+        
+        function goBackToPaymentOptions() {
+            location.reload();
+        }
+        
+        function processPayment() {
+            closePaymentModal();
+            showReceipt();
+        }
+        
+        function showReceipt() {
+            var customerName = localStorage.getItem('customerName');
+            if (customerName == null) {
+                customerName = 'Guest';
+            }
+            var orderTime = new Date();
+            var completionTime = new Date(orderTime.getTime() + 25 * 60000);
+            var orderNumber = Math.floor(Math.random() * 10000);
+            var tipAmount = parseFloat(document.getElementById('tip-amount').value) || 0;
+            var finalTotal = (29.97 + 2.55 + tipAmount + 3.99).toFixed(2);
+            
+            var receiptHTML = '<div id="receipt-modal" class="modal"><div class="receipt-content"><div class="receipt-header"><div class="receipt-title"><h1>MEXICAN EATS</h1><h2>Order Receipt</h2></div><span class="close" onclick="closeReceipt()">&times;</span></div><div class="receipt-body"><div class="restaurant-info"><p>Authentic Mexican Restaurant</p><p>Your Local Mexican Food Destination</p></div><div class="receipt-section"><h4>Customer Information</h4><p><strong>Name:</strong> ' + customerName + '</p><p><strong>Order Time:</strong> ' + orderTime.toLocaleString() + '</p><p><strong>Order #:</strong> ME' + orderNumber + '</p></div><div class="receipt-section"><h4>Items Ordered</h4><div class="receipt-items"><div class="receipt-item"><span>Beef Tacos (2x)</span><span>$12.99</span></div><div class="receipt-item"><span>Chicken Burrito (1x)</span><span>$9.99</span></div><div class="receipt-item"><span>Guacamole & Chips</span><span>$6.99</span></div></div></div><div class="receipt-section"><div class="receipt-totals"><div class="total-line"><span>Subtotal:</span><span>$29.97</span></div><div class="total-line"><span>Tax (8.5%):</span><span>$2.55</span></div><div class="total-line"><span>Tip:</span><span>$' + tipAmount.toFixed(2) + '</span></div><div class="total-line"><span>Delivery Fee:</span><span>$3.99</span></div><div class="total-line final-total"><span><strong>Total Amount:</strong></span><span><strong>$' + finalTotal + '</strong></span></div></div></div><div class="receipt-section"><h4>Estimated Completion Time</h4><div class="completion-time"><p><strong>Ready by: ' + completionTime.toLocaleTimeString() + '</strong></p><p>Estimated preparation time: <strong>20-25 minutes</strong></p></div></div><div class="receipt-footer"><p>Thank you for choosing Mexican Eats!</p><p>¡Gracias por su orden!</p><button class="print-btn" onclick="printReceipt()">Print Receipt</button></div></div></div></div>';
+            
+            document.body.insertAdjacentHTML('beforeend', receiptHTML);
+            document.getElementById('receipt-modal').style.display = 'block';
+        }
+        
+        function closeReceipt() {
+            var receiptModal = document.getElementById('receipt-modal');
+            if (receiptModal) {
+                receiptModal.remove();
+            }
+        }
+        
+        function printReceipt() {
+            window.print();
+        }
+        
+        function updateTotal() {
+            var cartItemsList = document.getElementById('cart-items-list');
+            var isCartEmpty = cartItemsList.innerHTML.includes('Your cart is currently empty');
+            
+            if (isCartEmpty) {
+                document.getElementById('cart-subtotal').textContent = '$0.00';
+                document.getElementById('cart-tax').textContent = '$0.00';
+                document.getElementById('cart-total').textContent = '$0.00';
+                document.getElementById('tip-amount').value = '';
+            } else {
+                var subtotal = 29.97;
+                var tax = 2.55;
+                var tipAmount = parseFloat(document.getElementById('tip-amount').value) || 0;
+                var deliveryFee = 3.99;
+                
+                document.getElementById('cart-subtotal').textContent = '$' + subtotal.toFixed(2);
+                document.getElementById('cart-tax').textContent = '$' + tax.toFixed(2);
+                
+                var newTotal = subtotal + tax + tipAmount + deliveryFee;
+                document.getElementById('cart-total').textContent = '$' + newTotal.toFixed(2);
+            }
+        }
+        
+        window.onload = function() {
+            updateTotal();
+        }
+        
+        window.onclick = function(event) {
+            var modal = document.getElementById('payment-modal');
+            if (event.target == modal) {
+                closePaymentModal();
+            }
+        }
+    </script>
 </body>
 </html>
