@@ -1,60 +1,40 @@
-function showAddCard() {
-    document.getElementById('addCardForm').style.display = 'block';
-    document.querySelector('.add-payment-btn').style.display = 'none';
-}
-
-function cancelAddCard() {
-    document.getElementById('addCardForm').style.display = 'none';
-    document.querySelector('.add-payment-btn').style.display = 'block';
-    clearCardForm();
-}
-
-function saveCard()  {
-    //get card info
-    const cardName = document.querySelector('input[placeholder="Cardholder Name"]').value;
-    const cardNumber = document.querySelector('input[placeholder="Card Number"]').value;
-    const cardType =document.querySelector('input[name="cardType"]:checked').value;
-
-
-    if (cardName && cardNumber) {
-        //card list
-        const cardsList = document.querySelector('.payment-methods-list');
-        const maskedNumber = '**** **** **** ' + cardNumber.slice(-4);
-
-
-        cardsList.innerHTML += `
-            <div class="saved-card">
-                <span class="card-info">${cardType.toUpperCase()} ending in ${cardNumber.slice(-4)}</span>
-                <span class="cardholder-name">${cardName}</span>
-            </div>
-        `;
-
-        cancelAddCard();
-        alert('Card saved successfully!');
-    } else {
-        alert('please fill in all required fields');
-    }
-    }
+document.addEventListener("DOMContentLoaded", () => {
     
-function clearCardForm() {
-    const inputs = document.querySelectorAll('#addCardForm input[type="text"]');
-    inputs.forEach(input => input.value = '');
+    const menuItems = document.querySelectorAll(".menu-item");
 
-}
+    menuItems.forEach(item => {
+        const plusBtn = item.querySelector(".plus-btn");
+        const minusBtn = item.querySelector(".minus-btn");
+        const quantityInput = item.querySelector(".quantity"); 
 
-function deselectAllItems() {
-    // Reset cart total and item count
-    document.getElementById('cartTotal').textContent = '$0.00';
-    document.getElementById('itemCount').textContent = '0 items';
-    
-    // Show empty cart message
-    document.querySelector('.empty-cart').style.display = 'block';
-    
-    // Hide any cart items if they exist
-    const cartItems = document.querySelector('.cart-items');
-    if (cartItems) {
-        cartItems.innerHTML = '';
-    }
-    
-    alert('All items have been removed from your cart');
-}
+        const getCurrentQuantity = () => {
+            let value = parseInt(quantityInput.value, 10);
+            
+            if (isNaN(value) || value < 0) {
+                value = 0;
+            }
+            return value;
+        };
+        
+
+        plusBtn.addEventListener("click", () => {
+            let currentQuantity = getCurrentQuantity();
+            currentQuantity++;
+            quantityInput.value = currentQuantity; 
+        });
+
+        minusBtn.addEventListener("click", () => {
+            let currentQuantity = getCurrentQuantity();
+            if (currentQuantity > 0) {
+                currentQuantity--;
+                quantityInput.value = currentQuantity; 
+            }
+        });
+
+        quantityInput.addEventListener("blur", () => {
+            let currentQuantity = getCurrentQuantity();
+            quantityInput.value = currentQuantity;
+        });
+    });
+
+});
