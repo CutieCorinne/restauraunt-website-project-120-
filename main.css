@@ -219,4 +219,33 @@
     overflow: hidden;
     margin-top: 30px;
 }
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left {
+    width: 20%;
+}
+
+.header-center {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.header-right {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 18px;
+}
+
+.site-logo {
+    height: 100px;
+    width: auto;
+}
+
 /* corinne's code */
