@@ -1,0 +1,222 @@
+    /* corinne's code */
+    .menu-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.menu-nav button {
+    background-color: #388e3c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.menu-nav button:hover {
+    background-color: #2e7030;
+}
+
+.site-header {
+    width: 100%;
+    background-color: #f1e8d9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 25px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #d9cbb6;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header-left img.site-logo {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-center .site-title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #5a4632;
+    text-align: center;
+    white-space: nowrap;
+    padding-left: 100px;
+}
+
+.header-right {
+    display: flex;
+    gap: 18px;
+}
+
+.header-icon {
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #5a4632;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.header-icon:hover {
+    transform: scale(1.15);
+    color: #8b6f54;
+}
+
+
+@media (max-width: 600px) {
+    .header-center .site-title {
+        font-size: 1.3rem;
+    }
+
+    .header-icon {
+        font-size: 1.4rem;
+    }
+
+    .header-left img.site-logo {
+        height: 40px;
+    }
+}
+
+.menu-nav {
+    margin-top: 40px;  
+}
+
+.order-banner {
+    width: 100%;
+    background-color: #f1e8d9; 
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.order-banner-content {
+    background-color: #ffffff;
+    padding: 35px 50px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    max-width: 700px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+.order-btn {
+    background-color: #5a4632;
+    color: white;
+    border: none;
+    padding: 18px 45px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.order-btn:hover {
+    transform: scale(1.05);
+    background-color: #7a6148;
+}
+
+.order-separator {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #5a4632;
+    user-select: none;
+}
+
+@media (max-width: 600px) {
+    .order-banner-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px 30px;
+    }
+
+    .order-btn {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .order-separator {
+        font-size: 1.2rem;
+    }
+}
+
+.weekly-deal {
+    width: 100%;
+    height: 350px;
+    background-image: url("imgs/taco deals.png"); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.deal-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 20px 30px;
+    border-radius: 14px;
+    max-width: 330px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+.deal-overlay h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: #5a4632;
+    font-weight: 800;
+}
+
+.deal-overlay p {
+    margin: 5px 0 15px 0;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #5a4632;
+}
+
+.deal-btn {
+    width: 100%;
+    background-color: #5a4632;
+    color: white;
+    padding: 12px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.deal-btn:hover {
+    transform: scale(1.03);
+    background-color: #7a6148;
+}
+
+.weekly-deal {
+    width: 100%;
+    height: 350px;
+    background-image: url("imgs/taco\ deals.png"); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+/* corinne's code */
