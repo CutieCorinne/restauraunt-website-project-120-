@@ -376,4 +376,77 @@ justify-content: center;
     white-space: nowrap;
 }
 
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    justify-content: center;
+    overflow-y: auto;
+    z-index: 10000;
+    padding: 40px 0;
+}
+
+.cart-modal {
+    background: #fff;
+    padding: 35px 40px;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    position: relative;
+}
+
+.close-cart {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #5a4632;
+}
+
+.cart-items {
+    margin-top: 20px;
+}
+
+.cart-summary {
+    margin-top: 25px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.total {
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.checkout-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px 0;
+    background-color: #5a4632;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #7a6148;
+    transform: scale(1.03);
+}
+
 /* corinne's code */
