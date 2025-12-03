@@ -9,26 +9,29 @@
 </head>
 <body>
 
-  <header class="site-header">
-       <div class="header-center">
+ <header class="site-header">
+    <div class="header-left">
+        <a href="menu.html" class="header-icon">📖</a>
+        <a href="deals.html" class="header-icon">💸</a>
+        <a href="rewards.html" class="header-icon">🎉</a>
+    </div>
+
+    <div class="header-center">
         <a href="main.html">
             <img src="imgs/chatgpt.png" alt="Site Logo" class="site-logo">
         </a>
     </div>
 
-      <div class="header-right">
-          <a href="main.html" class="header-icon">🏠</a>
-          <a href="menu.html" class="header-icon">📖</a>
-          <a href="deals.html" class="header-icon">💸</a>
-          <a href="rewards.html" class="header-icon">🎉</a>
-          <a href="cart.html" class="header-icon">🛒</a>
-      </div>
-  </header>
+    <div class="header-right">
+<span class="header-icon cart-btn">🛒</span>
+    </div>
+</header>
 
- 
 
   <div class="order-banner">
     <div class="order-banner-content">
+
+        <h1>Bring the fiesta home!</h1>
         <button class="order-btn delivery-btn">Delivery</button>
         
         <span class="order-separator">OR</span>
@@ -45,6 +48,111 @@
         <button class="deal-btn">Add Deal</button>
     </div>
 </section>
+
+<div class="delivery-overlay" id="deliveryOverlay">
+    <div class="delivery-modal">
+        <button class="close-delivery">&times;</button>
+
+        <h2>Delivery Details</h2>
+
+        <form class="delivery-form">
+            <label>Full Name</label>
+            <input type="text" required>
+
+            <label>Phone Number</label>
+            <input type="text" required>
+
+            <label>Delivery Address</label>
+            <input type="text" required>
+
+            <label>Apartment / Suite (optional)</label>
+            <input type="text">
+
+            <label>City</label>
+            <input type="text" required>
+
+            <label>Delivery Instructions (optional)</label>
+            <textarea></textarea>
+
+            <button class="delivery-submit">Continue</button>
+        </form>
+    </div>
+</div>
+
+<div class="cart-overlay" id="cartOverlay">
+    <div class="cart-modal">
+        <button class="close-cart">&times;</button>
+
+        <h2>Your Cart</h2>
+
+        <div class="cart-items">
+            <p>Your cart is currently empty</p>
+        </div>
+
+        <div class="cart-summary">
+            <div class="summary-line">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="summary-line">
+                <span>Tax:</span>
+                <span id="cart-tax">$0.00</span>
+            </div>
+            <div class="summary-line total">
+                <span>Total:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+        </div>
+
+        <button class="checkout-btn">Checkout</button>
+    </div>
+</div>
+
+
+<script>
+    const deliveryBtn = document.querySelector(".delivery-btn");
+    const deliveryOverlay = document.getElementById("deliveryOverlay");
+    const closeDelivery = document.querySelector(".close-delivery");
+
+    deliveryBtn.addEventListener("click", () => {
+        deliveryOverlay.style.display = "flex";
+    });
+
+    closeDelivery.addEventListener("click", () => {
+        deliveryOverlay.style.display = "none";
+    });
+
+    // Close when clicking outside the modal
+    deliveryOverlay.addEventListener("click", (e) => {
+        if (e.target === deliveryOverlay) {
+            deliveryOverlay.style.display = "none";
+        }
+    });
+</script>
+
+<script>
+    const cartBtn = document.querySelector(".cart-btn");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const closeCart = document.querySelector(".close-cart");
+
+    cartBtn.addEventListener("click", () => {
+        cartOverlay.style.display = "flex";
+    });
+
+    closeCart.addEventListener("click", () => {
+        cartOverlay.style.display = "none";
+    });
+
+    cartOverlay.addEventListener("click", (e) => {
+        if (e.target === cartOverlay) {
+            cartOverlay.style.display = "none";
+        }
+    });
+
+    document.querySelector(".checkout-btn").addEventListener("click", () => {
+        window.location.href = "cart.html"; // takes user to full cart page
+    });
+</script>
 
 </body>
 </html>
