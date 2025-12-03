@@ -103,14 +103,24 @@
     background-color: #ffffff;
     padding: 35px 50px;
     border-radius: 18px;
+    
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between; /* stretches full width */
+    flex-wrap: nowrap; /* keeps one straight row */
+
     gap: 35px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    max-width: 700px;
-    width: 90%;
+
+    max-width: 900px; /* ADDED so it has room */
+    width: 100%;      /* allow stretch */
+
     box-sizing: border-box;
+}
+
+
+.order-banner-content h1{
+    white-space: nowrap;
 }
 
 .order-btn {
@@ -145,9 +155,18 @@
     }
 
     .order-btn {
-        width: 100%;
-        max-width: 260px;
-    }
+    background-color: #5a4632;
+    color: white;
+    border: none;
+    padding: 14px 32px;     /* improved proportions */
+    font-size: 1.3rem;      /* slightly smaller = cleaner */
+    font-weight: 700;
+    border-radius: 10px;    /* balanced */
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    white-space: nowrap;    /* prevents multi-line text */
+}
+
 
     .order-separator {
         font-size: 1.2rem;
@@ -283,7 +302,7 @@
     background: rgba(0,0,0,0.55);
     display: none;
     overflow-y: auto;
-    align-items: center;
+justify-content: center;
     z-index: 10000;
     animation: fadeIn 0.3s ease;
     padding: 40px 0;
@@ -292,7 +311,8 @@
 .delivery-modal {
     background: #fff;
     padding: 35px 40px;
-    width: 90%;
+    width: 100%;
+    height: 115%;
     max-width: 550px;
     border-radius: 14px;
     box-shadow: 0 4px 18px rgba(0,0,0,0.25);
@@ -354,6 +374,10 @@
 .delivery-submit:hover {
     background-color: #7a6148;
     transform: scale(1.03);
+}
+
+.pickup-btn {
+    white-space: nowrap;
 }
 
 /* corinne's code */
