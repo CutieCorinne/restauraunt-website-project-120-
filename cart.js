@@ -1,29 +1,23 @@
-//someones code//
+//corinne's code//
 function showCart() {
-    alert('Cart button clicked!'); // Quick test
-    
-    // Hide menu elements
+    alert('Cart button clicked!'); 
     document.querySelector('.button-container').style.display = 'none';
     document.querySelector('.header').style.display = 'none';
     
-    // Show cart page (fullscreen)
     document.getElementById('cartPage').style.display = 'block';
 }
 
 function goBackToMenu() {
-    // Hide cart page
     document.getElementById('cartPage').style.display = 'none';
     
-    // Show menu elements
     document.querySelector('.button-container').style.display = 'block';
     document.querySelector('.header').style.display = 'block';
 }
 
 
-//show the menu buttons
 document.getElementById('button-container').style.display= 'block';
 document.getElementById('header').style.display = 'block';
-// ^ someones code // 
+// corinne's code // 
 
 
 

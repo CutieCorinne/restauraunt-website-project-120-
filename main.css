@@ -24,6 +24,7 @@
 }
 
 .site-header {
+    padding: 0;
     width: 100%;
     background-color: #f1e8d9;
     display: flex;
@@ -55,8 +56,9 @@
 
 .header-right {
     display: flex;
-    gap: 18px;
+    justify-content: flex-end;
 }
+
 
 .header-icon {
     font-size: 1.6rem;
@@ -106,14 +108,14 @@
     
     display: flex;
     align-items: center;
-    justify-content: space-between; /* stretches full width */
-    flex-wrap: nowrap; /* keeps one straight row */
+    justify-content: space-between; 
+    flex-wrap: nowrap; 
 
     gap: 35px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 
-    max-width: 900px; /* ADDED so it has room */
-    width: 100%;      /* allow stretch */
+    max-width: 900px; 
+    width: 100%;      
 
     box-sizing: border-box;
 }
@@ -158,13 +160,13 @@
     background-color: #5a4632;
     color: white;
     border: none;
-    padding: 14px 32px;     /* improved proportions */
-    font-size: 1.3rem;      /* slightly smaller = cleaner */
+    padding: 14px 32px;     
+    font-size: 1.3rem;      
     font-weight: 700;
-    border-radius: 10px;    /* balanced */
+    border-radius: 10px;    
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease;
-    white-space: nowrap;    /* prevents multi-line text */
+    white-space: nowrap;    
 }
 
 
@@ -254,33 +256,30 @@
     z-index: 999;
 }
 
-/* Left section: icons */
+
 .header-left {
     width: 33%;
     display: flex;
     gap: 18px;
 }
 
-/* Center section: perfectly centered logo */
+
 .header-center {
     width: 33%;
     display: flex;
     justify-content: center;
 }
 
-/* Right section: empty but needed to keep layout symmetrical */
 .header-right {
     width: 33%;
 }
 
-/* logo */
 .site-logo {
     height: 100px;
     width: auto;
     object-fit: contain;
 }
 
-/* icons */
 .header-icon {
     font-size: 1.6rem;
     text-decoration: none;
@@ -320,7 +319,6 @@ justify-content: center;
     animation: slideUp 0.3s ease;
 }
 
-/* Animation */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -330,7 +328,6 @@ justify-content: center;
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* Close button */
 .close-delivery {
     position: absolute;
     top: 12px;
@@ -342,7 +339,6 @@ justify-content: center;
     color: #5a4632;
 }
 
-/* Form Styling */
 .delivery-form {
     display: flex;
     flex-direction: column;

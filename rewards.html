@@ -12,7 +12,37 @@
         <div class="rewards-header">
             <h1> rewards System</h1>
             <div class="points-display">
-                <span class= "points-label">Your points"
+                <span class= "points-label">Your points:</span>
+                <span id="pointsCount" class="points-count">0</span>
+            </div>
+        </div>
+
+        <div class="progess-section">
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <p class="progress-text">
+                <span id="pointsToFree">100</span> points to your next free reward!
+            </p>
+        </div>
+
+        <div class="actions">
+            <button id="orderBtn" class="order-btn"> 
+                place order (+20 Points)
+            </button>
+            <button id="redeemBtn" class="redeem-btn" disabled>
+                Redeem Reward (-100 Points)
+                </button>
+        </div>
+
+        <div class="rewards-history">
+            <h3>Recent Activity</h3>
+            <ul id="activityList" class="activity-list">
+                <li>Welcome to our rewards program!</li>
+            </ul>
+        </div>  
+    </div>
+    <script src="rewards.js"></script>
     
 </body>
 </html>
