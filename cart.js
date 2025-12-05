@@ -75,3 +75,43 @@ function addToCart(itemName, price) {
 }
 
 // someones code ^ //
+
+// Load and display cart items from localStorage
+function loadCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsList = document.getElementById('cart-items-list');
+    
+    if (cart.length === 0) {
+        cartItemsList.innerHTML = '<p>Your cart is currently empty</p>';
+        return;
+    }
+    
+    // Clear the empty message
+    cartItemsList.innerHTML = '';
+    
+    // Display each cart item
+    cart.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+            <div class="cart-item-details">
+                <h4>${item.name}</h4>
+                <p>Quantity: ${item.quantity}</p>
+            </div>
+            <button class="remove-item-btn" onclick="removeCartItem(${index})">Remove</button>
+        `;
+        cartItemsList.appendChild(itemDiv);
+    });
+}
+
+// Remove item from cart
+function removeCartItem(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    loadCart(); // Reload the cart display
+}
+
+// Load cart when page loads
+document.addEventListener('DOMContentLoaded', loadCart);
