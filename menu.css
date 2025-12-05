@@ -244,4 +244,28 @@ body {
     padding: 0 20px 40px 20px; 
 }
 
+.add-to-cart-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 80%;
+    max-width: 200px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0);
+}
+
 /* corinne's code ^ */
