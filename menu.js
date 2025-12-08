@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const itemName = item.dataset.name;
             const itemImage = item.dataset.image;
+            const itemPrice = parseFloat(item.dataset.price);
 
             // Get existing cart from localStorage or create new array
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cart.push({
                     name: itemName,
                     image: itemImage,
+                    price: itemPrice,
                     quantity: quantity
                 });
             }
