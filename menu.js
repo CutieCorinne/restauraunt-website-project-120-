@@ -1,86 +1,67 @@
-// corinne's code // 
+// menu.js - attaches quantity controls and Add to Cart actions
 
-document.addEventListener("DOMContentLoaded", () => {
-    
-    const menuItems = document.querySelectorAll(".menu-item");
+document.addEventListener('DOMContentLoaded', () => {
+  const menuItems = document.querySelectorAll('.menu-item');
 
-    menuItems.forEach(item => {
-        const plusBtn = item.querySelector(".plus-btn");
-        const minusBtn = item.querySelector(".minus-btn");
-        const quantityInput = item.querySelector(".quantity"); 
-        const addToCartBtn = item.querySelector(".add-to-cart-btn");
+  menuItems.forEach(item => {
+    const plusBtn = item.querySelector('.plus-btn') || item.querySelector('.quantity-controls .plus-btn');
+    const minusBtn = item.querySelector('.minus-btn') || item.querySelector('.quantity-controls .minus-btn');
+    const qtyInput = item.querySelector('.quantity');
+    const addBtn = item.querySelector('.add-to-cart-btn');
 
-        const getCurrentQuantity = () => {
-            let value = parseInt(quantityInput.value, 10);
-            
-            if (isNaN(value) || value < 0) {
-                value = 0;
-            }
-            return value;
-        };
-        
+    // Use dataset values
+    const name = item.dataset.name;
+    const price = parseFloat(item.dataset.price || 0);
+    const image = item.dataset.image || '';
 
-        plusBtn.addEventListener("click", () => {
-            let currentQuantity = getCurrentQuantity();
-            currentQuantity++;
-            quantityInput.value = currentQuantity; 
-        });
+    const getQty = () => {
+      const v = parseInt(qtyInput.value, 10);
+      return (isNaN(v) || v < 0) ? 0 : v;
+    };
 
-        minusBtn.addEventListener("click", () => {
-            let currentQuantity = getCurrentQuantity();
-            if (currentQuantity > 0) {
-                currentQuantity--;
-                quantityInput.value = currentQuantity; 
-            }
-        });
+    if (plusBtn) {
+      plusBtn.addEventListener('click', () => {
+        qtyInput.value = getQty() + 1;
+      });
+    }
 
-        quantityInput.addEventListener("blur", () => {
-            let currentQuantity = getCurrentQuantity();
-            quantityInput.value = currentQuantity;
-        });
+    if (minusBtn) {
+      minusBtn.addEventListener('click', () => {
+        const q = getQty();
+        if (q > 0) qtyInput.value = q - 1;
+      });
+    }
 
-        // Add to cart functionality
-        addToCartBtn.addEventListener("click", () => {
-            const quantity = getCurrentQuantity();
-            
-            if (quantity === 0) {
-                alert("Please select a quantity greater than 0");
-                return;
-            }
+    if (qtyInput) {
+      // ensure non-negative numbers only
+      qtyInput.addEventListener('input', () => {
+        if (qtyInput.value === '') return;
+        let v = parseInt(qtyInput.value, 10);
+        if (isNaN(v) || v < 0) v = 0;
+        qtyInput.value = v;
+      });
+    }
 
-            const itemName = item.dataset.name;
-            const itemImage = item.dataset.image;
-            const itemPrice = parseFloat(item.dataset.price);
+    if (addBtn) {
+      addBtn.addEventListener('click', () => {
+        const q = getQty();
+        // per your choice, do nothing when q === 0
+        if (q === 0) {
+          // no alert; silent
+          return;
+        }
+        addToCart(name, price, image, q);
+        qtyInput.value = 0;
 
-            // Get existing cart from localStorage or create new array
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            // Check if item already exists in cart
-            const existingItemIndex = cart.findIndex(cartItem => cartItem.name === itemName);
-
-            if (existingItemIndex > -1) {
-                // Item exists, update quantity
-                cart[existingItemIndex].quantity += quantity;
-            } else {
-                // Add new item to cart
-                cart.push({
-                    name: itemName,
-                    image: itemImage,
-                    price: itemPrice,
-                    quantity: quantity
-                });
-            }
-
-            // Save cart to localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-
-            // Show confirmation
-            alert(`${quantity} x ${itemName} added to cart!`);
-
-            // Reset quantity to 0
-            quantityInput.value = 0;
-        });
-    });
-
+        // quick UI feedback
+        const prev = addBtn.textContent;
+        addBtn.textContent = '✓ Added';
+        addBtn.disabled = true;
+        setTimeout(() => {
+          addBtn.textContent = prev;
+          addBtn.disabled = false;
+        }, 900);
+      });
+    }
+  });
 });
-// corinne's code ^ //

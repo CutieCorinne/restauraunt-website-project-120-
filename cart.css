@@ -1,4 +1,121 @@
-/* chris code */ 
+/* corinnes code  */
+
+.site-header {
+    width: 100%;
+    background-color: #f1e8d9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 25px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #d9cbb6;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header-left {
+    width: 33%;
+    display: flex;
+    gap: 18px;
+}
+
+.header-center {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+}
+
+.header-right {
+    width: 33%;
+    display: flex; /* Added for alignment */
+    align-items: center; /* Added for alignment */
+    justify-content: flex-end; /* Added for alignment */
+    gap: 20px; /* Added for spacing */
+}
+
+.header-left img.site-logo, .site-logo { /* Targeting the logo */
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-icon {
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #5a4632;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.header-icon:hover {
+    transform: scale(1.15);
+    color: #8b6f54;
+}
+
+/* User Profile & Sign Out Styles */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-circle {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #5a4632;
+}
+
+.signout-btn {
+    background: #5a4632;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.signout-btn:hover {
+    background-color: #7a6148;
+}
+
+
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 600px) {
+    .header-center .site-title {
+        font-size: 1.3rem;
+    }
+
+    .header-icon {
+        font-size: 1.4rem;
+    }
+
+    .header-left img.site-logo, .site-logo {
+        height: 40px;
+    }
+    
+    /* Ensure the profile elements are also small on mobile */
+    .profile-circle {
+        width: 40px; 
+        height: 40px; 
+    }
+    
+    .signout-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+/* corinnes code */ 
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f1e8d9;
+    margin: 0;
+    padding: 0;
+}
+
 .cart-content {
     display: flex;
     gap: 30px;
@@ -10,28 +127,36 @@
 
 .cart-items {
     flex: 2;
-    background: #f8f9fa;
-    border: 2px solid #28a745;
-    border-radius: 10px;
+    background: #ffffff;
+    border: 2px solid #d9cbb6;
+    border-radius: 12px;
     padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cart-items h3 {
+    color: #5a4632;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
 }
 
 .cart-item {
     display: flex;
     align-items: center;
     gap: 15px;
-    background: white;
+    background: #f1e8d9;
     padding: 15px;
     margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+    border-radius: 10px;
+    border: 1px solid #d9cbb6;
 }
 
 .cart-item-image {
     width: 80px;
     height: 80px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 8px;
+    border: 2px solid #d9cbb6;
 }
 
 .cart-item-details {
@@ -40,7 +165,8 @@
 
 .cart-item-details h4 {
     margin: 0 0 5px 0;
-    color: #333;
+    color: #5a4632;
+    font-weight: 700;
 }
 
 .cart-item-details p {
@@ -50,26 +176,35 @@
 }
 
 .remove-item-btn {
-    background: #dc3545;
+    background: #c05746;
     color: white;
     border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
+    padding: 10px 18px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
 }
 
 .remove-item-btn:hover {
-    background: #c82333;
+    background: #a04736;
 }
 
 .cart-summary {
     flex: 1;
-    background: #f8f9fa;
-    border: 2px solid #28a745;
-    border-radius: 10px;
+    background: #ffffff;
+    border: 2px solid #d9cbb6;
+    border-radius: 12px;
     padding: 25px;
     height: fit-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cart-summary h3 {
+    color: #5a4632;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
 }
 
 .summary-line {
@@ -77,27 +212,36 @@
     justify-content: space-between;
     margin-bottom: 10px;
     padding: 5px 0;
+    color: #5a4632;
 }
 
 .summary-line.total {
-    border-top: 2px solid #28a745;
+    border-top: 2px solid #d9cbb6;
     padding-top: 15px;
     margin-top: 15px;
     font-weight: bold;
     font-size: 1.2em;
+    color: #5a4632;
 }
 
 .payment-btn {
     width: 100%;
     padding: 15px;
-    background: #28a745;
+    background: #5a4632;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.payment-btn:hover {
+    background: #7a6148;
+    transform: scale(1.03);
+}
 }
 
 .payment-btn:hover {
@@ -106,16 +250,16 @@
 
 #tip-amount {
     width: 80px;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
+    padding: 8px;
+    border: 2px solid #d9cbb6;
+    border-radius: 8px;
     font-size: 14px;
     text-align: right;
 }
 
 #tip-amount:focus {
     outline: none;
-    border-color: #28a745;
+    border-color: #5a4632;
 }
 
 .modal {
@@ -126,17 +270,17 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.55);
 }
 
 .modal-content {
     background-color: white;
     margin: 5% auto;
     padding: 0;
-    border-radius: 10px;
+    border-radius: 14px;
     width: 90%;
     max-width: 500px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 
 .modal-header {
@@ -144,23 +288,25 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 25px;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid #d9cbb6;
+    background-color: #f1e8d9;
 }
 
 .modal-header h2 {
     margin: 0;
-    color: #28a745;
+    color: #5a4632;
+    font-size: 1.5rem;
 }
 
 .close {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    color: #999;
+    color: #8b6f54;
 }
 
 .close:hover {
-    color: #28a745;
+    color: #5a4632;
 }
 
 .payment-options {
@@ -172,15 +318,17 @@
     align-items: center;
     padding: 15px;
     margin-bottom: 10px;
-    border: 2px solid #f0f0f0;
-    border-radius: 8px;
+    border: 2px solid #d9cbb6;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s;
+    background: #f1e8d9;
 }
 
 .payment-option:hover {
-    border-color: #28a745;
-    background-color: #f8fff8;
+    border-color: #5a4632;
+    background-color: #ffffff;
+    transform: translateY(-2px);
 }
 
 .payment-icon {
@@ -192,7 +340,8 @@
 
 .payment-info h4 {
     margin: 0 0 5px 0;
-    color: #333;
+    color: #5a4632;
+    font-weight: 700;
 }
 
 .payment-info p {
@@ -226,8 +375,8 @@
 .form-group input {
     width: 100%;
     padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    border: 2px solid #d9cbb6;
+    border-radius: 8px;
     font-size: 16px;
     box-sizing: border-box;
     transition: border-color 0.3s;
@@ -235,7 +384,7 @@
 
 .form-group input:focus {
     outline: none;
-    border-color: #28a745;
+    border-color: #5a4632;
 }
 
 .form-row {
@@ -256,42 +405,46 @@
 .back-btn {
     flex: 1;
     padding: 12px;
-    background: #6c757d;
+    background: #8b6f54;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
 }
 
 .back-btn:hover {
-    background: #5a6268;
+    background: #a38468;
 }
 
 .confirm-btn {
     flex: 2;
     padding: 12px;
-    background: #28a745;
+    background: #5a4632;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .confirm-btn:hover {
-    background: #218838;
+    background: #7a6148;
+    transform: scale(1.03);
 }
 
 .receipt-content {
     background-color: white;
     margin: 2% auto;
     padding: 0;
-    border-radius: 10px;
+    border-radius: 14px;
     width: 90%;
     max-width: 600px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
     max-height: 90vh;
     overflow-y: auto;
 }
@@ -301,13 +454,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 25px;
-    border-bottom: 2px solid #28a745;
-    background-color: #f8fff8;
+    border-bottom: 2px solid #d9cbb6;
+    background-color: #f1e8d9;
 }
 
 .receipt-title h1 {
     margin: 0 0 5px 0;
-    color: #28a745;
+    color: #5a4632;
     font-size: 28px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -316,7 +469,7 @@
 
 .receipt-title h2 {
     margin: 0;
-    color: #666;
+    color: #8b6f54;
     font-size: 18px;
     font-weight: normal;
 }
@@ -334,25 +487,25 @@
 
 .restaurant-info h3 {
     margin: 0 0 5px 0;
-    color: #28a745;
+    color: #5a4632;
     font-size: 24px;
 }
 
 .restaurant-info p {
     margin: 0;
-    color: #666;
+    color: #8b6f54;
     font-style: italic;
 }
 
 .receipt-section {
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 1px dashed #eee;
+    border-bottom: 1px dashed #d9cbb6;
 }
 
 .receipt-section h4 {
     margin: 0 0 10px 0;
-    color: #28a745;
+    color: #5a4632;
     font-size: 16px;
 }
 
@@ -384,18 +537,18 @@
 }
 
 .total-line.final-total {
-    border-top: 2px solid #28a745;
+    border-top: 2px solid #d9cbb6;
     padding-top: 10px;
     margin-top: 15px;
     font-size: 18px;
-    color: #28a745;
+    color: #5a4632;
 }
 
 .completion-time {
-    background-color: #f8fff8;
+    background-color: #f1e8d9;
     padding: 15px;
-    border-radius: 8px;
-    border-left: 4px solid #28a745;
+    border-radius: 10px;
+    border-left: 4px solid #5a4632;
 }
 
 .completion-time p {
@@ -405,7 +558,7 @@
 .receipt-footer {
     text-align: center;
     padding-top: 20px;
-    border-top: 2px solid #28a745;
+    border-top: 2px solid #d9cbb6;
     margin-top: 20px;
 }
 
@@ -415,18 +568,21 @@
 }
 
 .print-btn {
-    background: #28a745;
+    background: #5a4632;
     color: white;
     border: none;
     padding: 12px 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     margin-top: 15px;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .print-btn:hover {
-    background: #218838;
+    background: #7a6148;
+    transform: scale(1.03);
 }
 
-/* chris code ^ */ 
+/* chris code  */
