@@ -313,14 +313,11 @@ function deleteItem(id) {
 // chris code ^ //
 
 //corinnes code
-// Add this to manager.js
 const managerLogoutBtn = document.getElementById('managerLogoutBtn');
 if (managerLogoutBtn) {
     managerLogoutBtn.addEventListener('click', () => {
-        // Optional: clear login flags
         localStorage.removeItem('userLoggedIn');
         localStorage.removeItem('userEmail');
-        // Redirect to main page
         window.location.href = 'main.html';
     });
 }

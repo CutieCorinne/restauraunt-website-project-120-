@@ -1,4 +1,4 @@
-// Load rewards data when page loads
+// germaines code
 document.addEventListener("DOMContentLoaded", () => {
     updateRewardsDisplay();
     loadOrderHistory();
@@ -15,18 +15,16 @@ function saveRewardsData(data) {
 
 function updateRewardsDisplay() {
     const rewards = getRewardsData();
-    const currentPoints = rewards.points % 100; // Points toward next reward
+    const currentPoints = rewards.points % 100; 
     const completedRewards = Math.floor(rewards.points / 100);
     
     document.getElementById('currentPoints').textContent = rewards.points;
     document.getElementById('progressText').textContent = `${currentPoints}/100`;
     document.getElementById('pointsNeeded').textContent = 100 - currentPoints;
     
-    // Update progress bar
     const progressBar = document.getElementById('progressBar');
     progressBar.style.width = `${currentPoints}%`;
     
-    // Enable/disable redeem button
     const redeemBtn = document.getElementById('redeemBtn');
     if (rewards.points >= 100) {
         redeemBtn.disabled = false;
@@ -49,7 +47,6 @@ function addOrderPoints(orderTotal = 0) {
         total: orderTotal
     });
     
-    // Keep only last 10 orders
     if (rewards.orderHistory.length > 10) {
         rewards.orderHistory = rewards.orderHistory.slice(0, 10);
     }
@@ -58,7 +55,6 @@ function addOrderPoints(orderTotal = 0) {
     updateRewardsDisplay();
     loadOrderHistory();
     
-    // Show points earned notification
     alert(`🎉 You earned ${pointsEarned} points! Total: ${rewards.points} points`);
 }
 
@@ -94,10 +90,8 @@ function loadOrderHistory() {
     `).join('');
 }
 
-// Test function - remove in production
 function testAddPoints() {
     addOrderPoints(25.99);
 }
 
-// Expose function globally for cart integration
 window.addOrderPoints = addOrderPoints;

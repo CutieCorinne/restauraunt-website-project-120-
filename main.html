@@ -1,6 +1,6 @@
-<!--corinnes code-->
 <!doctype html>
 <html lang="en">
+  <!--corinnes code-->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -67,7 +67,6 @@
       color: #999;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       .footer-links a {
         display: block;
@@ -130,26 +129,26 @@
     <div class="delivery-modal">
         <h2>Delivery Details</h2>
 
-        <form class="delivery-form">
-            <label>Full Name</label>
-            <input type="text" required>
+        <form class="delivery-form" id="delivery-form">
+            <label for="delivery-name">Full Name</label>
+            <input type="text" id="delivery-name" required pattern="[A-Za-z\s]+" title="Name should only contain letters and spaces">
 
-            <label>Phone Number</label>
-            <input type="text" required>
+            <label for="delivery-phone">Phone Number</label>
+            <input type="tel" id="delivery-phone" required pattern="[\d\s-]{10,}" title="Please enter a valid phone number (at least 10 digits)">
 
-            <label>Delivery Address</label>
-            <input type="text" required>
+            <label for="delivery-address">Delivery Address</label>
+            <input type="text" id="delivery-address" required title="Please enter a valid street address">
 
-            <label>Apartment / Suite (optional)</label>
-            <input type="text">
+            <label for="delivery-suite">Apartment / Suite (optional)</label>
+            <input type="text" id="delivery-suite">
 
-            <label>City</label>
-            <input type="text" required>
+            <label for="delivery-city">City</label>
+            <input type="text" id="delivery-city" required pattern="[A-Za-z\s]+" title="City should only contain letters and spaces">
 
-            <label>Delivery Instructions (optional)</label>
-            <textarea></textarea>
+            <label for="delivery-instructions">Delivery Instructions (optional)</label>
+            <textarea id="delivery-instructions"></textarea>
 
-            <button class="delivery-submit">Continue</button>
+            <button type="submit" class="delivery-submit">Continue</button>
         </form>
     </div>
 </div>
@@ -158,23 +157,23 @@
     <div class="delivery-modal">
         <h2>Pick Up Details</h2>
 
-        <form class="delivery-form">
-            <label>Full Name</label>
-            <input type="text" required>
+        <form class="delivery-form" id="pickup-form">
+            <label for="pickup-name">Full Name</label>
+            <input type="text" id="pickup-name" required pattern="[A-Za-z\s]+" title="Name should only contain letters and spaces">
 
-            <label>Phone Number</label>
-            <input type="text" required>
+            <label for="pickup-phone">Phone Number</label>
+            <input type="tel" id="pickup-phone" required pattern="[\d\s-]{10,}" title="Please enter a valid phone number (at least 10 digits)">
 
-            <label>Pick Up Location</label>
-            <select required>
+            <label for="pickup-location">Pick Up Location</label>
+            <select id="pickup-location" required>
                 <option value="">Select a location</option>
                 <option value="downtown">Downtown - 123 Main St</option>
                 <option value="north">North Side - 456 Oak Ave</option>
                 <option value="west">West End - 789 Elm Blvd</option>
             </select>
 
-            <label>Pick Up Time</label>
-            <select required>
+            <label for="pickup-time">Pick Up Time</label>
+            <select id="pickup-time" required>
                 <option value="">Select a time</option>
                 <option value="asap">ASAP (20-30 min)</option>
                 <option value="30min">30 minutes</option>
@@ -182,10 +181,10 @@
                 <option value="2hours">2 hours</option>
             </select>
 
-            <label>Special Instructions (optional)</label>
-            <textarea placeholder="Any special requests or notes..."></textarea>
+            <label for="pickup-instructions">Special Instructions (optional)</label>
+            <textarea id="pickup-instructions" placeholder="Any special requests or notes..."></textarea>
 
-            <button class="delivery-submit">Continue</button>
+            <button type="submit" class="delivery-submit">Continue</button>
         </form>
     </div>
 </div>
@@ -201,11 +200,11 @@
     <p class="signin-switch">Already have an account? <span>Sign in!</span></p>
 
 <label for="email">Email Address</label>
-<input type="email" id="email" name="email" placeholder="Enter your email" required>
+<input type="email" id="email" name="email" placeholder="Enter your email" required title="Please enter a valid email address">
 
 
 <label for="password">Password</label>
-<input type="password" id="password" name="password" placeholder="Enter your password" required>
+<input type="password" id="password" name="password" placeholder="Enter your password" minlength="8" required title="Password must be at least 8 characters">
 
     <button class="signin-continue">Continue</button>
 
@@ -215,7 +214,7 @@
 
     <button class="signin-create">Sign Up!</button>
 
-        <p class="faculty-link" id="facultyLink">Faculty Sign In</p>
+    <p class="faculty-link" id="facultyLink">Faculty Sign In</p>
 
   </div>
 </div>
@@ -230,10 +229,10 @@
     <p style="color: #666; margin-bottom: 20px;">Please enter your manager credentials</p>
 
     <label for="faculty-username">Username</label>
-    <input type="text" id="faculty-username" placeholder="Enter username" required>
+    <input type="text" id="faculty-username" placeholder="Enter username" required pattern="[A-Za-z0-9_-]{3,}" title="Username must be at least 3 characters long (letters, numbers, underscores, or dashes)">
 
     <label for="faculty-password">Password</label>
-    <input type="password" id="faculty-password" placeholder="Enter password" required>
+    <input type="password" id="faculty-password" placeholder="Enter password" required minlength="8" title="Password must be at least 8 characters">
 
     <button class="signin-continue" id="facultyLoginBtn">Login as Manager</button>
 
@@ -298,4 +297,4 @@
 </body>
 </html>
 
-<!--corinnes code-->>
+<!--corinnes code-->
