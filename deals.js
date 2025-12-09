@@ -1,3 +1,5 @@
+// corinnes code 
+
 const deals = [
     { name: "Buy 2 Get 2 Free Tacos", price: 9.99, image: "imgs/tacod.png" },
     { name: "Half-Price Nachos", price: 6.99, image: "imgs/nachod.png" },
@@ -27,3 +29,5 @@ deals.forEach(deal => {
 function addToCart(name, price, image, quantity) {
     alert(`Added "${name}" to the cart!`);
 }
+
+// corinnes code 

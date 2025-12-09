@@ -1,5 +1,4 @@
-// menu.js - attaches quantity controls and Add to Cart actions
-
+//corinnes code 
 document.addEventListener('DOMContentLoaded', () => {
   const menuItems = document.querySelectorAll('.menu-item');
 
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const qtyInput = item.querySelector('.quantity');
     const addBtn = item.querySelector('.add-to-cart-btn');
 
-    // Use dataset values
     const name = item.dataset.name;
     const price = parseFloat(item.dataset.price || 0);
     const image = item.dataset.image || '';
@@ -33,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (qtyInput) {
-      // ensure non-negative numbers only
       qtyInput.addEventListener('input', () => {
         if (qtyInput.value === '') return;
         let v = parseInt(qtyInput.value, 10);
@@ -45,15 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addBtn) {
       addBtn.addEventListener('click', () => {
         const q = getQty();
-        // per your choice, do nothing when q === 0
         if (q === 0) {
-          // no alert; silent
           return;
         }
         addToCart(name, price, image, q);
         qtyInput.value = 0;
 
-        // quick UI feedback
         const prev = addBtn.textContent;
         addBtn.textContent = '✓ Added';
         addBtn.disabled = true;
@@ -65,3 +59,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+// corinnes code 

@@ -1,6 +1,6 @@
-<!-- Chris code -->
 <!DOCTYPE html>
 <html lang="en">
+    <!--corinne and chris code-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,12 +27,12 @@
                 <form id="login-form">
                     <div>
                         <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
+                        <input type="text" id="username" name="username" pattern="[A-Za-z0-9_-]{3,}" title="Username must be at least 3 characters long and contain only letters, numbers, dashes, or underscores." required>
                     </div>
 
                     <div>
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="password" minlength="8" required title="Password must be at least 8 characters long.">
                     </div>
                     
                     <button type="submit">Login</button>
@@ -44,17 +44,17 @@
                 <form id="signup-form">
                     <div>
                         <label for="signup-name">Full Name:</label>
-                        <input type="text" id="signup-name" name="signupName" required>
+                        <input type="text" id="signup-name" name="signupName" pattern="[A-Za-z\s]+" title="Full Name should only contain letters and spaces." required>
                     </div>
                     
                     <div>
                         <label for="signup-username">Username:</label>
-                        <input type="text" id="signup-username" name="signupUsername" required>
+                        <input type="text" id="signup-username" name="signupUsername" pattern="[A-Za-z0-9_-]{3,}" title="Username must be at least 3 characters long and contain only letters, numbers, dashes, or underscores." required>
                     </div>
 
                     <div>
                         <label for="signup-password">Password:</label>
-                        <input type="password" id="signup-password" name="signupPassword" required>
+                        <input type="password" id="signup-password" name="signupPassword" minlength="8" title="Password must be at least 8 characters long and include one uppercase letter, one lowercase letter, and one number." required>
                     </div>
                     
                     <button type="submit">Sign Up</button>
@@ -67,4 +67,4 @@
     <script src="login.js"></script>
 </body>
 </html>
-<!--Chris code ^ -->
+<!--corinne and chris code-->

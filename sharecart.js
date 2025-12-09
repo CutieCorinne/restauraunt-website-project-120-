@@ -1,7 +1,4 @@
-/* ================================
-   UNIVERSAL CART SYSTEM
-   Uses localStorage.cart
-================================= */
+//corinnes code 
 
 function loadCart() {
     return JSON.parse(localStorage.getItem("cart")) || [];
@@ -100,9 +97,9 @@ function enableCartRowButtons() {
 }
 
 function refreshAllCarts() {
-    // cart modal on main
     renderCart(".cart-items", "#cart-subtotal", "#cart-tax", "#cart-total");
 
-    // full cart page
     renderCart(".full-cart-items", "#full-subtotal", "#full-tax", "#full-total");
 }
+
+//corinnes code 
