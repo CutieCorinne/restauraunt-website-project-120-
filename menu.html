@@ -7,22 +7,27 @@
 <body>
 <header class="site-header">
     <div class="header-left">
-    <a href="main.html">
-        <img src="imgs/chatgpt.png" alt="Site Logo" class="site-logo">
-    </a>
-</div>
-
-    <div class="header-center">
-        <h1 class="site-title">Mexican Lexican</h1>
-    </div>
-
-    <div class="header-right">
-        <a href="main.html" class="header-icon">🏠</a>
         <a href="menu.html" class="header-icon">📖</a>
         <a href="deals.html" class="header-icon">💸</a>
         <a href="rewards.html" class="header-icon">🎉</a>
-        <a href="cart.html" class="header-icon">🛒</a>
     </div>
+
+    <div class="header-center">
+        <a href="main.html">
+            <img src="imgs/chatgpt.png" alt="Site Logo" class="site-logo">
+        </a>
+    </div>
+
+   <div class="header-right">
+    <span class="header-icon sign-in-btn" id="signInIcon">🔐</span>
+
+    <div class="user-profile" id="userProfile" style="display:none;">
+        <img src="imgs/aitacogirl.png" class="profile-circle">
+        <button class="signout-btn" id="signOutBtn">Sign Out</button>
+    </div>
+
+    <span class="header-icon cart-btn">🛒</span>
+</div>
 </header>
 
 <div class="menu-nav">
@@ -294,6 +299,7 @@
     </div>
 
 </div>
+<script src="cart.js"></script>
 <script src="menu.js"></script>
 </body>
 </html>
