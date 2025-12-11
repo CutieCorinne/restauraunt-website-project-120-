@@ -30,6 +30,34 @@
 </div>
 </header>
 
+<!-- Cart Modal Overlay -->
+<div class="cart-overlay" id="cartOverlay" style="display:none;">
+    <div class="cart-modal">
+        <button class="close-cart">&times;</button>
+        <h2>Your Cart</h2>
+        <div class="cart-items">
+            <div id="cart-items-list">
+                <p>Your cart is currently empty</p>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="summary-line">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="summary-line">
+                <span>Tax:</span>
+                <span id="cart-tax">$0.00</span>
+            </div>
+            <div class="summary-line total">
+                <span>Total:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+</div>
+
 <div class="menu-nav">
     <button onclick="document.getElementById('breakfast').scrollIntoView({ behavior: 'smooth' });">Breakfast</button>
     <button onclick="document.getElementById('lunch').scrollIntoView({ behavior: 'smooth' });">Lunch</button>
@@ -301,6 +329,7 @@
 </div>
 <script src="cart.js"></script>
 <script src="menu.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
 

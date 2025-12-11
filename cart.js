@@ -62,15 +62,29 @@ function computeTotals(cart = null) {
 }
 
 function renderModalCart() {
-  const container = document.querySelector('.cart-items');
-  if (!container) return;
-  const cart = loadCart();
   const cartItemsList = document.getElementById('cart-items-list');
-  if (cartItemsList) cartItemsList.innerHTML = '';
+  if (!cartItemsList) return;
+  const cart = loadCart();
+  cartItemsList.innerHTML = '';
   if (cart.length === 0) {
-    if (cartItemsList) cartItemsList.innerHTML = '<p>Your cart is currently empty</p>';
+    cartItemsList.innerHTML = '<p>Your cart is currently empty</p>';
   } else {
-
+    cart.forEach((item, idx) => {
+      const itemTotal = (Number(item.price) * Number(item.quantity)).toFixed(2);
+      const div = document.createElement('div');
+      div.className = 'cart-item';
+      div.innerHTML = `
+        <img src="${escapeHtml(item.image || '')}" alt="${escapeHtml(item.name)}" class="cart-item-image" style="max-width:64px;max-height:64px;">
+        <div class="cart-item-details">
+          <h4>${escapeHtml(item.name)}</h4>
+          <p>Price: $${Number(item.price).toFixed(2)}</p>
+          <p>Quantity: <span class="qty-display" data-name="${escapeHtml(item.name)}">${item.quantity}</span></p>
+          <p><strong>Total: $${itemTotal}</strong></p>
+        </div>
+        <button class="remove-item-btn" data-name="${escapeHtml(item.name)}">Remove</button>
+      `;
+      cartItemsList.appendChild(div);
+    });
   }
 
   const totals = computeTotals(cart);
@@ -89,67 +103,16 @@ function renderModalCart() {
   if (taxEl) taxEl.textContent = '$' + totals.tax.toFixed(2);
   if (totEl) totEl.textContent = '$' + finalTotal.toFixed(2);
 
-  attachCartHandlers(chrisContainer); 
+  cartItemsList.querySelectorAll('.remove-item-btn').forEach(btn => {
+    btn.onclick = () => {
+      const name = btn.dataset.name;
+      removeCartItemByName(name);
+    };
+  });
 }
 
 function renderFullCart() {
-  const cart = loadCart();
-
-  const chrisContainer = document.getElementById('cart-items-list');
-  if (chrisContainer) {
-    chrisContainer.innerHTML = '';
-    if (cart.length === 0) {
-      chrisContainer.innerHTML = '<p>Your cart is currently empty</p>';
-    } else {
-      cart.forEach((item, idx) => {
-        const itemTotal = (Number(item.price) * Number(item.quantity)).toFixed(2);
-        const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.innerHTML = `
-          <img src="${escapeHtml(item.image || '')}" alt="${escapeHtml(item.name)}" class="cart-item-image" style="max-width:64px;max-height:64px;">
-          <div class="cart-item-details">
-            <h4>${escapeHtml(item.name)}</h4>
-            <p>Price: $${Number(item.price).toFixed(2)}</p>
-            <p>Quantity: <span class="full-qty" data-name="${escapeHtml(item.name)}">${item.quantity}</span></p>
-            <p><strong>Total: $${itemTotal}</strong></p>
-          </div>
-          <button class="remove-item-btn" data-index="${idx}" data-name="${escapeHtml(item.name)}">Remove</button>
-        `;
-        chrisContainer.appendChild(div);
-      });
-    }
-  }
-
-
-
-  const totals = computeTotals(cart);
-  const ids = ['cart-subtotal', 'cart-tax', 'cart-total', 'full-subtotal', 'full-tax', 'full-total'];
-  ids.forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (id.includes('subtotal')) el.textContent = '$' + totals.subtotal.toFixed(2);
-    if (id.includes('tax')) el.textContent = '$' + totals.tax.toFixed(2);
-    if (id.includes('total')) {
-        const tipInput = document.getElementById('tip-amount');
-        let tip = 0;
-        if (tipInput) {
-          tip = parseFloat(tipInput.value) || 0;
-          if (tip < 0) tip = 0; 
-        }
-        el.textContent = '$' + (totals.total + tip).toFixed(2);
-    }
-  });
-
-  if (chrisContainer) {
-    chrisContainer.querySelectorAll('.remove-item-btn').forEach(btn => {
-      btn.onclick = () => {
-        const name = btn.dataset.name;
-        removeCartItemByName(name);
-      };
-    });
-  }
-
-
+  renderModalCart();
 }
 
 function attachCartHandlers(container) {
@@ -209,9 +172,6 @@ function closeCardModal() {
   }
 }
 
-
- @returns {boolean} 
- 
 function validateCardForm() {
     const form = document.getElementById('card-form');
     if (!form.checkValidity()) {
